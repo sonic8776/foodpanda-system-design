@@ -17,6 +17,7 @@
 		D0F93C532C2AF658009E11D1 /* RequestType.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0F93C522C2AF658009E11D1 /* RequestType.swift */; };
 		D0F93C552C2AF672009E11D1 /* WeatherRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0F93C542C2AF672009E11D1 /* WeatherRequest.swift */; };
 		D0F93C592C2AF7B9009E11D1 /* WeatherRemoteRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0F93C582C2AF7B9009E11D1 /* WeatherRemoteRepository.swift */; };
+		D0F93C5B2C2AFCC7009E11D1 /* WeatherUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0F93C5A2C2AFCC7009E11D1 /* WeatherUseCase.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +33,7 @@
 		D0F93C522C2AF658009E11D1 /* RequestType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestType.swift; sourceTree = "<group>"; };
 		D0F93C542C2AF672009E11D1 /* WeatherRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherRequest.swift; sourceTree = "<group>"; };
 		D0F93C582C2AF7B9009E11D1 /* WeatherRemoteRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherRemoteRepository.swift; sourceTree = "<group>"; };
+		D0F93C5A2C2AFCC7009E11D1 /* WeatherUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherUseCase.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,6 +101,7 @@
 		D0F93C572C2AF7AB009E11D1 /* UseCase */ = {
 			isa = PBXGroup;
 			children = (
+				D0F93C5A2C2AFCC7009E11D1 /* WeatherUseCase.swift */,
 			);
 			path = UseCase;
 			sourceTree = "<group>";
@@ -174,6 +177,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D0F93C5B2C2AFCC7009E11D1 /* WeatherUseCase.swift in Sources */,
 				D0F93C552C2AF672009E11D1 /* WeatherRequest.swift in Sources */,
 				D0F93C592C2AF7B9009E11D1 /* WeatherRemoteRepository.swift in Sources */,
 				D0F93C402C2AF450009E11D1 /* ViewController.swift in Sources */,
