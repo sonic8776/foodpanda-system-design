@@ -8,7 +8,7 @@
 import Foundation
 
 protocol HTTPClient {
-    func request(withRequestType: RequestType, completion: @escaping (Result<(Data, HTTPURLResponse), HTTPClientError>) -> Void)
+    func request(withRequestType requestType: RequestType, completion: @escaping (Result<(Data, HTTPURLResponse), HTTPClientError>) -> Void)
 }
 
 enum HTTPClientError: Error {
