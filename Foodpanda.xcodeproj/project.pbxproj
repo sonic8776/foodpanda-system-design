@@ -19,6 +19,8 @@
 		D0F93C592C2AF7B9009E11D1 /* WeatherRemoteRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0F93C582C2AF7B9009E11D1 /* WeatherRemoteRepository.swift */; };
 		D0F93C5B2C2AFCC7009E11D1 /* WeatherUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0F93C5A2C2AFCC7009E11D1 /* WeatherUseCase.swift */; };
 		D0F93C5E2C2AFF13009E11D1 /* WeatherViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0F93C5D2C2AFF13009E11D1 /* WeatherViewModel.swift */; };
+		D0F93C602C2B0052009E11D1 /* WeatherViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0F93C5F2C2B0052009E11D1 /* WeatherViewController.swift */; };
+		D0F93C622C2B0185009E11D1 /* URLSessionHTTPClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0F93C612C2B0185009E11D1 /* URLSessionHTTPClient.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +38,8 @@
 		D0F93C582C2AF7B9009E11D1 /* WeatherRemoteRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherRemoteRepository.swift; sourceTree = "<group>"; };
 		D0F93C5A2C2AFCC7009E11D1 /* WeatherUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherUseCase.swift; sourceTree = "<group>"; };
 		D0F93C5D2C2AFF13009E11D1 /* WeatherViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherViewModel.swift; sourceTree = "<group>"; };
+		D0F93C5F2C2B0052009E11D1 /* WeatherViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherViewController.swift; sourceTree = "<group>"; };
+		D0F93C612C2B0185009E11D1 /* URLSessionHTTPClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLSessionHTTPClient.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -88,6 +92,7 @@
 			children = (
 				D0F93C502C2AF496009E11D1 /* HTTPClient.swift */,
 				D0F93C522C2AF658009E11D1 /* RequestType.swift */,
+				D0F93C612C2B0185009E11D1 /* URLSessionHTTPClient.swift */,
 			);
 			path = NetworkModule;
 			sourceTree = "<group>";
@@ -113,6 +118,7 @@
 			isa = PBXGroup;
 			children = (
 				D0F93C5D2C2AFF13009E11D1 /* WeatherViewModel.swift */,
+				D0F93C5F2C2B0052009E11D1 /* WeatherViewController.swift */,
 			);
 			path = Presenter;
 			sourceTree = "<group>";
@@ -189,10 +195,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				D0F93C5B2C2AFCC7009E11D1 /* WeatherUseCase.swift in Sources */,
+				D0F93C602C2B0052009E11D1 /* WeatherViewController.swift in Sources */,
 				D0F93C5E2C2AFF13009E11D1 /* WeatherViewModel.swift in Sources */,
 				D0F93C552C2AF672009E11D1 /* WeatherRequest.swift in Sources */,
 				D0F93C592C2AF7B9009E11D1 /* WeatherRemoteRepository.swift in Sources */,
 				D0F93C402C2AF450009E11D1 /* ViewController.swift in Sources */,
+				D0F93C622C2B0185009E11D1 /* URLSessionHTTPClient.swift in Sources */,
 				D0F93C3C2C2AF450009E11D1 /* AppDelegate.swift in Sources */,
 				D0F93C512C2AF496009E11D1 /* HTTPClient.swift in Sources */,
 				D0F93C3E2C2AF450009E11D1 /* SceneDelegate.swift in Sources */,
