@@ -20,6 +20,7 @@ struct Weather {
 
 enum WeatherUseCaseError: Error {
     case userCaseError
+    case parsingError
 }
 
 protocol WeatherUseCaseProtocol {
@@ -43,8 +44,14 @@ class WeatherUseCase: WeatherUseCaseProtocol {
                 let weather = Weather(fromDTO: weatherDTO)
                 // 7: execute completionForViewModel
                 completionForViewModel(.success(weather))
-            case .failure(_):
-                completionForViewModel(.failure(.userCaseError))
+            case let .failure(repoError):
+                switch repoError {
+                case .failedToParseData:
+                    completionForViewModel(.failure(.parsingError))
+                case .networkError:
+                    completionForViewModel(.failure(.userCaseError))
+                }
+                
             }
             
         }
