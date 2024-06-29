@@ -76,6 +76,54 @@ class WeatherUseCaseTests: XCTestCase {
         spy.complete(withError: spyError)
         wait(for: [expectation], timeout: 1.0)
     }
+    
+    func test_loadWeather_withCorrectOrders() {
+        let (sut, spy) = makeSUT()
+        let expectation1 = expectation(description: "Wait for first failure completion...")
+        let expectation2 = expectation(description: "Wait for second successful completion...")
+        let expectation3 = expectation(description: "Wait for third failure completion...")
+        let expectedError1 = WeatherUseCaseError.parsingError
+        let expectedWeatherDTO = WeatherDTO.init(temperature: 23.3, humidity: 11.5)
+        let expectedError2 = WeatherUseCaseError.useCaseError
+        
+        sut.loadWeather(fromCountry: "", OnDate: "") { result in
+            expectation1.fulfill()
+            switch result {
+            case let .failure(receivedError):
+                XCTAssertEqual(expectedError1, receivedError)
+            default:
+                XCTFail("Should not be successful!")
+            }
+        }
+        
+        sut.loadWeather(fromCountry: "", OnDate: "") { result in
+            expectation2.fulfill()
+            switch result {
+            case let .success(weather):
+                // 9: compare temperature and humidity
+                XCTAssertEqual(weather.temperature, expectedWeatherDTO.temperature)
+                XCTAssertEqual(weather.humidity, expectedWeatherDTO.humidity)
+            default:
+                XCTFail("Should not be failed!")
+            }
+        }
+        
+        sut.loadWeather(fromCountry: "", OnDate: "") { result in
+            expectation3.fulfill()
+            switch result {
+            case let .failure(receivedError):
+                XCTAssertEqual(expectedError2, receivedError)
+            default:
+                XCTFail("Should not be successful!")
+            }
+        }
+        
+        spy.complete(withError: .failedToParseData, atIndex: 0)
+        spy.complete(withWeatherDTO: expectedWeatherDTO, atIndex: 1)
+        spy.complete(withError: .networkError, atIndex: 2)
+        
+        wait(for: [expectation1, expectation2, expectation3], timeout: 1.0)
+    }
 }
 
 private extension WeatherUseCaseTests {
