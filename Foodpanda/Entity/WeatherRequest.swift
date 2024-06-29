@@ -10,7 +10,7 @@ import Foundation
 // https://foodpanda.com/weather?country=taiwan&date=20240625
 
 struct WeatherRequest: RequestType {
-    var domainURL: URL { .init(string: "https://foodpand.com")! }
+    var domainURL: URL { .init(string: "https://foodpanda.com")! }
     
     var path: String { "weather" }
     
