@@ -19,7 +19,7 @@ struct Weather {
 }
 
 enum WeatherUseCaseError: Error {
-    case userCaseError
+    case useCaseError
     case parsingError
 }
 
@@ -49,7 +49,7 @@ class WeatherUseCase: WeatherUseCaseProtocol {
                 case .failedToParseData:
                     completionForViewModel(.failure(.parsingError))
                 case .networkError:
-                    completionForViewModel(.failure(.userCaseError))
+                    completionForViewModel(.failure(.useCaseError))
                 }
                 
             }

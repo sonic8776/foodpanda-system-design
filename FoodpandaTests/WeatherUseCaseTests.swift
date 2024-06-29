@@ -58,7 +58,7 @@ class WeatherUseCaseTests: XCTestCase {
     
     func test_loadWeather_withFailedGetUseCaseError() {
         let (sut, spy) = makeSUT()
-        let expectedError = WeatherUseCaseError.userCaseError
+        let expectedError = WeatherUseCaseError.useCaseError
         let expectation = expectation(description: "Wait for completion...")
         
         let completionForTesting: ((Result<Weather, WeatherUseCaseError>) -> Void) = { result in
