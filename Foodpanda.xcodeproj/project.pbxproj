@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D03DD4B82C2FA9FF00654944 /* WeatherFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = D03DD4B72C2FA9FF00654944 /* WeatherFactory.swift */; };
 		D0F93C3C2C2AF450009E11D1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0F93C3B2C2AF450009E11D1 /* AppDelegate.swift */; };
 		D0F93C3E2C2AF450009E11D1 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0F93C3D2C2AF450009E11D1 /* SceneDelegate.swift */; };
 		D0F93C402C2AF450009E11D1 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0F93C3F2C2AF450009E11D1 /* ViewController.swift */; };
@@ -24,6 +25,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		D03DD4B72C2FA9FF00654944 /* WeatherFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherFactory.swift; sourceTree = "<group>"; };
 		D0F93C382C2AF450009E11D1 /* Foodpanda.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Foodpanda.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D0F93C3B2C2AF450009E11D1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D0F93C3D2C2AF450009E11D1 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -119,6 +121,7 @@
 			children = (
 				D0F93C5D2C2AFF13009E11D1 /* WeatherViewModel.swift */,
 				D0F93C5F2C2B0052009E11D1 /* WeatherViewController.swift */,
+				D03DD4B72C2FA9FF00654944 /* WeatherFactory.swift */,
 			);
 			path = Presenter;
 			sourceTree = "<group>";
@@ -197,6 +200,7 @@
 				D0F93C5B2C2AFCC7009E11D1 /* WeatherUseCase.swift in Sources */,
 				D0F93C602C2B0052009E11D1 /* WeatherViewController.swift in Sources */,
 				D0F93C5E2C2AFF13009E11D1 /* WeatherViewModel.swift in Sources */,
+				D03DD4B82C2FA9FF00654944 /* WeatherFactory.swift in Sources */,
 				D0F93C552C2AF672009E11D1 /* WeatherRequest.swift in Sources */,
 				D0F93C592C2AF7B9009E11D1 /* WeatherRemoteRepository.swift in Sources */,
 				D0F93C402C2AF450009E11D1 /* ViewController.swift in Sources */,

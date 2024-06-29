@@ -11,7 +11,7 @@ class WeatherViewController: UIViewController {
     
     lazy var temperatureLabel = makeLabel()
     lazy var humidityLabel = makeLabel()
-    let viewModel = WeatherViewModel()
+    let viewModel = WeatherFactory.makeViewModel()
     
     
     override func viewDidLoad() {
