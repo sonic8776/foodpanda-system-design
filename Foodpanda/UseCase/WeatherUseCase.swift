@@ -23,7 +23,7 @@ enum WeatherUseCaseError: Error {
 }
 
 protocol WeatherUseCaseProtocol {
-    func loadWeather(fromCountry country: String, OnDate date: String, completion: @escaping ((Result<Weather, WeatherUseCaseError>) -> Void))
+    func loadWeather(fromCountry country: String, OnDate date: String, completionForViewModel: @escaping ((Result<Weather, WeatherUseCaseError>) -> Void))
 }
 
 class WeatherUseCase: WeatherUseCaseProtocol {
@@ -34,16 +34,22 @@ class WeatherUseCase: WeatherUseCaseProtocol {
         self.remoteRepo = remoteRepo
     }
     
-    func loadWeather(fromCountry country: String, OnDate date: String, completion: @escaping ((Result<Weather, WeatherUseCaseError>) -> Void)) {
-        remoteRepo.requestWeather(fromCountry: country, onDate: date) { result in
+    func loadWeather(fromCountry country: String, OnDate date: String, completionForViewModel: @escaping ((Result<Weather, WeatherUseCaseError>) -> Void)) {
+        
+        // 6: execute completionForUseCase and the result is .success(weatherDTO)
+        let completionForUseCase: (Result<WeatherDTO, WeatherRemoteRepositoryError>) -> Void = { result in
             switch result {
             case let .success(weatherDTO):
                 let weather = Weather(fromDTO: weatherDTO)
-                completion(.success(weather))
-                
+                // 7: execute completionForViewModel
+                completionForViewModel(.success(weather))
             case .failure(_):
-                completion(.failure(.userCaseError))
+                completionForViewModel(.failure(.userCaseError))
             }
+            
         }
+
+        // 2: ask remoteRepoSpy to call requestWeather, and set completionForUseCase for requestWeather
+        remoteRepo.requestWeather(fromCountry: country, onDate: date, completion: completionForUseCase)
     }
 }

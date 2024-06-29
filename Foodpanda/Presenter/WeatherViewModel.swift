@@ -23,7 +23,7 @@ class WeatherViewModel {
     }
     
     func loadTaiwanWeather() {
-        useCase.loadWeather(fromCountry: "taiwan", OnDate: "20240625") { result in
+        let completion: ((Result<Weather, WeatherUseCaseError>) -> Void) = { result in
             switch result {
             case .success(let weather):
                 self.weatherDidUpdate?(weather)
@@ -33,5 +33,17 @@ class WeatherViewModel {
                 self.errorDidUpdate?(WeatherViewModelError.viewModelError)
             }
         }
+        
+        useCase.loadWeather(fromCountry: "taiwan", OnDate: "20240625", completionForViewModel: completion)
+//        useCase.loadWeather(fromCountry: "taiwan", OnDate: "20240625") { result in
+//            switch result {
+//            case .success(let weather):
+//                self.weatherDidUpdate?(weather)
+//                
+//                
+//            case .failure(_):
+//                self.errorDidUpdate?(WeatherViewModelError.viewModelError)
+//            }
+//        }
     }
 }

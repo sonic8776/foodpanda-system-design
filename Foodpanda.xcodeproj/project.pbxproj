@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		D03DD4B82C2FA9FF00654944 /* WeatherFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = D03DD4B72C2FA9FF00654944 /* WeatherFactory.swift */; };
+		D03DD4C02C2FB19D00654944 /* FoodpandaTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D03DD4BF2C2FB19D00654944 /* FoodpandaTests.swift */; };
+		D03DD4C72C2FB22400654944 /* WeatherUseCaseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D03DD4C62C2FB22400654944 /* WeatherUseCaseTests.swift */; };
 		D0F93C3C2C2AF450009E11D1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0F93C3B2C2AF450009E11D1 /* AppDelegate.swift */; };
 		D0F93C3E2C2AF450009E11D1 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0F93C3D2C2AF450009E11D1 /* SceneDelegate.swift */; };
 		D0F93C402C2AF450009E11D1 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0F93C3F2C2AF450009E11D1 /* ViewController.swift */; };
@@ -24,8 +26,21 @@
 		D0F93C622C2B0185009E11D1 /* URLSessionHTTPClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0F93C612C2B0185009E11D1 /* URLSessionHTTPClient.swift */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		D03DD4C12C2FB19D00654944 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D0F93C302C2AF450009E11D1 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = D0F93C372C2AF450009E11D1;
+			remoteInfo = Foodpanda;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
 		D03DD4B72C2FA9FF00654944 /* WeatherFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherFactory.swift; sourceTree = "<group>"; };
+		D03DD4BD2C2FB19D00654944 /* FoodpandaTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FoodpandaTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		D03DD4BF2C2FB19D00654944 /* FoodpandaTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodpandaTests.swift; sourceTree = "<group>"; };
+		D03DD4C62C2FB22400654944 /* WeatherUseCaseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherUseCaseTests.swift; sourceTree = "<group>"; };
 		D0F93C382C2AF450009E11D1 /* Foodpanda.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Foodpanda.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D0F93C3B2C2AF450009E11D1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D0F93C3D2C2AF450009E11D1 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -45,6 +60,13 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		D03DD4BA2C2FB19D00654944 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		D0F93C352C2AF450009E11D1 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -55,10 +77,20 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		D03DD4BE2C2FB19D00654944 /* FoodpandaTests */ = {
+			isa = PBXGroup;
+			children = (
+				D03DD4BF2C2FB19D00654944 /* FoodpandaTests.swift */,
+				D03DD4C62C2FB22400654944 /* WeatherUseCaseTests.swift */,
+			);
+			path = FoodpandaTests;
+			sourceTree = "<group>";
+		};
 		D0F93C2F2C2AF450009E11D1 = {
 			isa = PBXGroup;
 			children = (
 				D0F93C3A2C2AF450009E11D1 /* Foodpanda */,
+				D03DD4BE2C2FB19D00654944 /* FoodpandaTests */,
 				D0F93C392C2AF450009E11D1 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -67,6 +99,7 @@
 			isa = PBXGroup;
 			children = (
 				D0F93C382C2AF450009E11D1 /* Foodpanda.app */,
+				D03DD4BD2C2FB19D00654944 /* FoodpandaTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -129,6 +162,24 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		D03DD4BC2C2FB19D00654944 /* FoodpandaTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D03DD4C52C2FB19D00654944 /* Build configuration list for PBXNativeTarget "FoodpandaTests" */;
+			buildPhases = (
+				D03DD4B92C2FB19D00654944 /* Sources */,
+				D03DD4BA2C2FB19D00654944 /* Frameworks */,
+				D03DD4BB2C2FB19D00654944 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				D03DD4C22C2FB19D00654944 /* PBXTargetDependency */,
+			);
+			name = FoodpandaTests;
+			productName = FoodpandaTests;
+			productReference = D03DD4BD2C2FB19D00654944 /* FoodpandaTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		D0F93C372C2AF450009E11D1 /* Foodpanda */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = D0F93C4C2C2AF452009E11D1 /* Build configuration list for PBXNativeTarget "Foodpanda" */;
@@ -156,6 +207,10 @@
 				LastSwiftUpdateCheck = 1520;
 				LastUpgradeCheck = 1520;
 				TargetAttributes = {
+					D03DD4BC2C2FB19D00654944 = {
+						CreatedOnToolsVersion = 15.2;
+						TestTargetID = D0F93C372C2AF450009E11D1;
+					};
 					D0F93C372C2AF450009E11D1 = {
 						CreatedOnToolsVersion = 15.2;
 					};
@@ -175,11 +230,19 @@
 			projectRoot = "";
 			targets = (
 				D0F93C372C2AF450009E11D1 /* Foodpanda */,
+				D03DD4BC2C2FB19D00654944 /* FoodpandaTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		D03DD4BB2C2FB19D00654944 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		D0F93C362C2AF450009E11D1 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -193,6 +256,15 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		D03DD4B92C2FB19D00654944 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D03DD4C72C2FB22400654944 /* WeatherUseCaseTests.swift in Sources */,
+				D03DD4C02C2FB19D00654944 /* FoodpandaTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		D0F93C342C2AF450009E11D1 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -214,6 +286,14 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		D03DD4C22C2FB19D00654944 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = D0F93C372C2AF450009E11D1 /* Foodpanda */;
+			targetProxy = D03DD4C12C2FB19D00654944 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
 /* Begin PBXVariantGroup section */
 		D0F93C412C2AF450009E11D1 /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
@@ -234,6 +314,46 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		D03DD4C32C2FB19D00654944 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 65QQ97XV3Q;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.judytsai.FoodpandaTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SUPPORTS_MACCATALYST = YES;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Foodpanda.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Foodpanda";
+			};
+			name = Debug;
+		};
+		D03DD4C42C2FB19D00654944 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 65QQ97XV3Q;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.judytsai.FoodpandaTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SUPPORTS_MACCATALYST = YES;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Foodpanda.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Foodpanda";
+			};
+			name = Release;
+		};
 		D0F93C4A2C2AF452009E11D1 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -376,6 +496,8 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.judy.Foodpanda;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SUPPORTS_MACCATALYST = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -405,6 +527,8 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.judy.Foodpanda;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SUPPORTS_MACCATALYST = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -414,6 +538,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		D03DD4C52C2FB19D00654944 /* Build configuration list for PBXNativeTarget "FoodpandaTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D03DD4C32C2FB19D00654944 /* Debug */,
+				D03DD4C42C2FB19D00654944 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		D0F93C332C2AF450009E11D1 /* Build configuration list for PBXProject "Foodpanda" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
