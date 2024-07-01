@@ -11,28 +11,39 @@ import XCTest
 class WeatherUseCaseTests: XCTestCase {
     
     func test_loadWeather_withSuccessfullyGetWeatherDTO() {
-        let (sut, spy) = makeSUT()
-        let expectedWeatherDTO = WeatherDTO.init(temperature: 23.3, humidity: 11.5)
-        let expectation = expectation(description: "Wait for completion...")
+//        let (sut, spy) = makeSUT()
+//        let expectedWeatherDTO = WeatherDTO.init(temperature: 23.3, humidity: 11.5)
+//        let expectation = expectation(description: "Wait for completion...")
+//        
+//        // 8: execute completionForTesting, and compare the success result
+//        let completionForTesting: ((Result<Weather, WeatherUseCaseError>) -> Void) = { result in
+//            expectation.fulfill()
+//            switch result {
+//            case let .success(weather):
+//                // 9: compare temperature and humidity
+//                XCTAssertEqual(weather.temperature, expectedWeatherDTO.temperature)
+//                XCTAssertEqual(weather.humidity, expectedWeatherDTO.humidity)
+//            default:
+//                XCTFail("Should not be failed!")
+//            }
+//        }
+//        // 1: call useCase loadWeather and set completionForTesting to loadWeather
+//        sut.loadWeather(fromCountry: "", OnDate: "", completionForViewModel: completionForTesting)
+//        
+//        // 4: ask RemoteRepositorySpy to execute completion with .success(DTO) result
+//        spy.complete(withWeatherDTO: expectedWeatherDTO)
+//        wait(for: [expectation], timeout: 1.0)
         
-        // 8: execute completionForTesting, and compare the success result
-        let completionForTesting: ((Result<Weather, WeatherUseCaseError>) -> Void) = { result in
-            expectation.fulfill()
+        let expectedWeatherDTO = WeatherDTO.init(temperature: 23.3, humidity: 11.5)
+        expect(withResult: .success(expectedWeatherDTO)) { result in
             switch result {
             case let .success(weather):
-                // 9: compare temperature and humidity
                 XCTAssertEqual(weather.temperature, expectedWeatherDTO.temperature)
                 XCTAssertEqual(weather.humidity, expectedWeatherDTO.humidity)
             default:
                 XCTFail("Should not be failed!")
             }
         }
-        // 1: call useCase loadWeather and set completionForTesting to loadWeather
-        sut.loadWeather(fromCountry: "", OnDate: "", completionForViewModel: completionForTesting)
-        
-        // 4: ask RemoteRepositorySpy to execute completion with .success(DTO) result
-        spy.complete(withWeatherDTO: expectedWeatherDTO)
-        wait(for: [expectation], timeout: 1.0)
     }
     
     func test_loadWeather_withFailedGetParsingError() {
@@ -151,5 +162,23 @@ private extension WeatherUseCaseTests {
         let spy = RemoteRepositorySpy()
         let sut = WeatherUseCase(remoteRepo: spy)
         return (sut, spy)
+    }
+    
+    func expect(withResult expectedResult: Result<WeatherDTO, WeatherRemoteRepositoryError>, action: @escaping (((Result<Weather, WeatherUseCaseError>))) -> Void) {
+        let (sut, spy) = makeSUT()
+        let expectation = expectation(description: "Wait for completion...")
+        sut.loadWeather(fromCountry: "", OnDate: "") { result in
+            expectation.fulfill()
+            action(result)
+        }
+        
+        switch expectedResult {
+        case let .success(weatherDTO):
+            spy.complete(withWeatherDTO: weatherDTO)
+            
+        case let .failure(expectedRepoError):
+            spy.complete(withError: expectedRepoError)
+        }
+        wait(for: [expectation], timeout: 1.0)
     }
 }
