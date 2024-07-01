@@ -11,6 +11,7 @@ class WeatherViewController: UIViewController {
     
     lazy var temperatureLabel = makeLabel()
     lazy var humidityLabel = makeLabel()
+    lazy var loadWeatherButton = makeButton()
     let viewModel = WeatherFactory.makeViewModel()
     
     
@@ -30,6 +31,11 @@ class WeatherViewController: UIViewController {
     func setupUI() {
         
     }
+    
+    @objc
+    func buttonPressed() {
+        viewModel.loadTaiwanWeather()
+    }
 }
 
 private extension WeatherViewController {
@@ -38,5 +44,9 @@ private extension WeatherViewController {
         return label
     }
     
-    
+    func makeButton() -> UIButton {
+        let button = UIButton(type: .system)
+        button.addTarget(self, action: #selector(buttonPressed), for: .touchUpInside)
+        return button
+    }
 }
