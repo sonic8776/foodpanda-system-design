@@ -13,12 +13,12 @@ enum WeatherViewModelError: Error {
 
 class WeatherViewModel {
     
-    let useCase: WeatherUseCase
+    let useCase: WeatherUseCaseProtocol
     
     var weatherDidUpdate: ((Weather) -> Void)?
     var errorDidUpdate: ((WeatherViewModelError) -> Void)?
     
-    init(useCase: WeatherUseCase) {
+    init(useCase: WeatherUseCaseProtocol) {
         self.useCase = useCase
     }
     
