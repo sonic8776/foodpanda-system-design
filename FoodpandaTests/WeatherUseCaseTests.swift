@@ -47,14 +47,12 @@ class WeatherUseCaseTests: XCTestCase {
     }
     
     func test_loadWeather_withFailedGetParsingError() {
-        let (sut, spy) = makeSUT()
         let remoteRepoError = WeatherRemoteRepositoryError.failedToParseData
         let useCaseError = WeatherUseCaseError.parsingError
         expect(withRemoteRepoResult: .failure(remoteRepoError)) { result in
             switch result {
             case let .failure(receivedError):
                 XCTAssertEqual(receivedError, useCaseError)
-                
             default:
                 XCTFail("Should get error!")
             }
@@ -62,24 +60,16 @@ class WeatherUseCaseTests: XCTestCase {
     }
     
     func test_loadWeather_withFailedGetUseCaseError() {
-        let (sut, spy) = makeSUT()
-        let expectedError = WeatherUseCaseError.useCaseError
-        let expectation = expectation(description: "Wait for completion...")
-        
-        let completionForTesting: ((Result<Weather, WeatherUseCaseError>) -> Void) = { result in
-            expectation.fulfill()
+        let remoteRepoError = WeatherRemoteRepositoryError.networkError
+        let useCaseError = WeatherUseCaseError.useCaseError
+        expect(withRemoteRepoResult: .failure(remoteRepoError)) { result in
             switch result {
             case let .failure(receivedError):
-                XCTAssertEqual(expectedError, receivedError)
+                XCTAssertEqual(receivedError, useCaseError)
             default:
-                XCTFail("Should not be successful!")
+                XCTFail("Should get error!")
             }
         }
-        sut.loadWeather(fromCountry: "", OnDate: "", completionForViewModel: completionForTesting)
-        
-        let spyError = WeatherRemoteRepositoryError.networkError
-        spy.complete(withError: spyError)
-        wait(for: [expectation], timeout: 1.0)
     }
     
     func test_loadWeather_withCorrectOrders() {
