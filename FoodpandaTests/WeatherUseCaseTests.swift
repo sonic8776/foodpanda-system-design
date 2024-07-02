@@ -35,7 +35,7 @@ class WeatherUseCaseTests: XCTestCase {
 //        wait(for: [expectation], timeout: 1.0)
         
         let expectedWeatherDTO = WeatherDTO.init(temperature: 23.3, humidity: 11.5)
-        expect(withResult: .success(expectedWeatherDTO)) { result in
+        expect(withRemoteRepoResult: .success(expectedWeatherDTO)) { result in
             switch result {
             case let .success(weather):
                 XCTAssertEqual(weather.temperature, expectedWeatherDTO.temperature)
@@ -48,23 +48,17 @@ class WeatherUseCaseTests: XCTestCase {
     
     func test_loadWeather_withFailedGetParsingError() {
         let (sut, spy) = makeSUT()
-        let expectedError = WeatherUseCaseError.parsingError
-        let expectation = expectation(description: "Wait for completion...")
-        
-        let completionForTesting: ((Result<Weather, WeatherUseCaseError>) -> Void) = { result in
-            expectation.fulfill()
+        let remoteRepoError = WeatherRemoteRepositoryError.failedToParseData
+        let useCaseError = WeatherUseCaseError.parsingError
+        expect(withRemoteRepoResult: .failure(remoteRepoError)) { result in
             switch result {
             case let .failure(receivedError):
-                XCTAssertEqual(expectedError, receivedError)
+                XCTAssertEqual(receivedError, useCaseError)
+                
             default:
-                XCTFail("Should not be successful!")
+                XCTFail("Should get error!")
             }
         }
-        sut.loadWeather(fromCountry: "", OnDate: "", completionForViewModel: completionForTesting)
-        
-        let spyError = WeatherRemoteRepositoryError.failedToParseData
-        spy.complete(withError: spyError)
-        wait(for: [expectation], timeout: 1.0)
     }
     
     func test_loadWeather_withFailedGetUseCaseError() {
@@ -164,15 +158,22 @@ private extension WeatherUseCaseTests {
         return (sut, spy)
     }
     
-    func expect(withResult expectedResult: Result<WeatherDTO, WeatherRemoteRepositoryError>, action: @escaping (((Result<Weather, WeatherUseCaseError>))) -> Void) {
+    func expect(withRemoteRepoResult remoteRepoResult: Result<WeatherDTO, WeatherRemoteRepositoryError>, testingAction: @escaping (((Result<Weather, WeatherUseCaseError>))) -> Void) {
         let (sut, spy) = makeSUT()
         let expectation = expectation(description: "Wait for completion...")
-        sut.loadWeather(fromCountry: "", OnDate: "") { result in
+        let unitTestCompletion: (Result<Weather, WeatherUseCaseError>) -> Void = { result in
+            // result = .failure(.parsingError)
             expectation.fulfill()
-            action(result)
+            testingAction(result)
         }
         
-        switch expectedResult {
+        sut.loadWeather(fromCountry: "", OnDate: "", completionForViewModel: unitTestCompletion)
+//        sut.loadWeather(fromCountry: "", OnDate: "") { result in
+//            expectation.fulfill()
+//            testingAction(result)
+//        }
+        
+        switch remoteRepoResult {
         case let .success(weatherDTO):
             spy.complete(withWeatherDTO: weatherDTO)
             
